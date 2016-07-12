@@ -3,7 +3,7 @@ package racetrack
 class Race {
 	static constraints = {
 		name(blank:false, maxSize:50)
-		startDate()
+		startDate(validator: {return (it > new Date())}) //Make sure Race Date is greater than today.
 		city(blank:false)
 		state(inList:["GA","NC","SC","VA"])
 		distance(min:0.0)
